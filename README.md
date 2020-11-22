@@ -1,4 +1,4 @@
-# **Encrypting Data**
+# **Encrypter and Decrypter**
 **DEBAYAN MAJUMDER**
 
 This is a **python script** which read a file you pass and then **convert it** to an equivalent **encription**
