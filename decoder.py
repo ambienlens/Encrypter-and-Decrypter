@@ -1,5 +1,5 @@
 #DEBAYAN MAJUMDER 2020
-#Version 2.2
+#Version 3.0
 #THIS PYTHON SCRIPT HAS THREE FUNCTIONS WHICH HELPS TO RETURN THE EQUIVALENT
 #OF THE NUMBER PASSED.
 #THE SCRIPT CONVERTS THREE DIFFERENT BASES TO DECIMAL
@@ -36,3 +36,15 @@ def fromOctal(n):
         output = output + 8**exp * int(i)
         exp = exp - 1
     return output
+
+def extractFilePath(path):
+    i = 0
+    j = 0
+    for this in path:
+        if this == "/":
+            j = i
+        elif this == ".":
+            break
+        i = i + 1
+
+    return path[1:j+1]

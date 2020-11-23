@@ -1,8 +1,8 @@
 #DEBAYAN MAJUMDER 2020
-#Version 2.2
-#Added the parent file name in the output file for easy finding
+#Version 3.5
+#Added a hidden metadata file for decryption
 #Output Directory name can be changed now
-#This is the main driver python script which lets you enter the name of the file,
+#This is the driver python script which lets you enter the name of the file,
 #and then outputs the formated and modified file in Export Dir.
 
 #Importing Libraries
@@ -13,12 +13,13 @@ import os
 filePath = input("Enter the path of the file: ")
 fileName = extractFileName("/" + filePath)
 outputDir = "Export"
-outputFileName = "%s/%s_encrypted.txt"%(outputDir, fileName)
+outputDirParent = fileName + "_Encrypted"
+outputFileName = "%s/%s/%s_encrypted.txt"%(outputDir, outputDirParent, fileName)
+metadataFileName = "%s/%s/%s_metadata.json"%(outputDir, outputDirParent, fileName)
 output = []
 metadata = []
 tD = str(date.today())
 currentDate = "".join([i for i in tD if i != "-"])
-copyright = "AMBNTLNSTN_2020"
 isWrite = True
 
 with open(filePath) as originalContent:
@@ -36,7 +37,7 @@ if choice == "1":
         char = ord(i)
         #ASCII FOR A-Z, a-z, 0-9
         if ((char>=65 and char<=90) or (char>=97 and char<=122) or (char>=48 and char<=57)):
-            temp = toHexadecimal(char)
+            temp = toBinary(char)
             sizeOf = sizeOf + len(temp)
             metadata.append(str(sizeOf))
             output.append(temp)
@@ -49,16 +50,26 @@ elif choice == "2":
         char = ord(i)
         #ASCII FOR A-Z, a-z, 0-9
         if ((char>=65 and char<=90) or (char>=97 and char<=122) or (char>=48 and char<=57)):
-            output.append(toOctal(char))
+            temp = toOctal(char)
+            sizeOf = sizeOf + len(temp)
+            metadata.append(str(sizeOf))
+            output.append(temp)
         else:
+            sizeOf = sizeOf + 1
+            metadata.append(str(sizeOf))
             output.append(i)
 elif choice == "3":
     for i in code:
         char = ord(i)
         #ASCII FOR A-Z, a-z, 0-9
         if ((char>=65 and char<=90) or (char>=97 and char<=122) or (char>=48 and char<=57)):
-            output.append(toHexadecimal(char))
+            temp = toHexadecimal(char)
+            sizeOf = sizeOf + len(temp)
+            metadata.append(str(sizeOf))
+            output.append(temp)
         else:
+            sizeOf = sizeOf + 1
+            metadata.append(str(sizeOf))
             output.append(i)
 else:
     print("Wrong Input.")
@@ -66,9 +77,16 @@ else:
 
 if isWrite:   
     print("------------------------------")
-    metaData = " ".join(metadata) + "_" + currentDate + "_" + copyright
-    os.makedirs(outputDir, exist_ok=True)
+    path = os.path.join(outputDir, outputDirParent)
+    os.makedirs(path, exist_ok=True)
     with open(outputFileName, "w") as modifiedContent:
         modifiedContent.write("".join(output))
-        modifiedContent.write("\n\n\n\n\n\n\n\n%s"%metaData)
-        print("\n--FILE EXPORT SUCCESSFUL--\n")
+        print("\n--FILE EXPORT SUCCESSFUL--")
+    with open(metadataFileName, "w") as mdFile:
+        mdFile.write("[")
+        mdFile.write("%s,"%choice)
+        mdFile.write("%s,"%currentDate)
+        mdFile.write(",".join(metadata))
+        mdFile.write("]")
+        os.system("attrib +h %s"%(metadataFileName))
+        print("--METADATA WRITTEN SUCCESSFULLY--\n")
