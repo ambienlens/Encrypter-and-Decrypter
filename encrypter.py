@@ -1,6 +1,7 @@
 #DEBAYAN MAJUMDER 2020
-#Version 3.5
+#Version 3.6
 #Added a hidden metadata file for decryption
+#BUg Fixed: Existing metadata cannot be re-written
 #Output Directory name can be changed now
 #This is the driver python script which lets you enter the name of the file,
 #and then outputs the formated and modified file in Export Dir.
@@ -82,6 +83,10 @@ if isWrite:
     with open(outputFileName, "w") as modifiedContent:
         modifiedContent.write("".join(output))
         print("\n--FILE EXPORT SUCCESSFUL--")
+
+    if(os.path.exists(metadataFileName)):
+        os.system("attrib -h %s"%(metadataFileName))
+
     with open(metadataFileName, "w") as mdFile:
         mdFile.write("[")
         mdFile.write("%s,"%choice)

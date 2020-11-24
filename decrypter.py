@@ -36,12 +36,11 @@ else:
     start = 2
     end = start + 1
     temp = 0
-    print(len(encrptedData))
     if alorithm == 3:
         for i in  range((len(Metadata) - 3)):
             ch = encrptedData[Metadata[start]:Metadata[end]]
-            print(ch)
-            print("Start: %s, End: %s"%(Metadata[start], Metadata[end]))
+            #print(ch)
+            #print("Start: %s, End: %s"%(Metadata[start], Metadata[end]))
             if ch.isalnum():
                 temp = chr(fromHexadecimal(ch))
                 output.append(temp)
@@ -50,4 +49,4 @@ else:
             start = start + 1
             end = start + 1
         
-    print(output)
+    print("".join(output))
