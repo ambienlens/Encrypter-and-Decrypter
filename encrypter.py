@@ -84,6 +84,7 @@ if isWrite:
         modifiedContent.write("".join(output))
         print("\n--FILE EXPORT SUCCESSFUL--")
 
+    #Modifing the Hidden Attribute to viewable, if metadata already exists
     if(os.path.exists(metadataFileName)):
         os.system("attrib -h %s"%(metadataFileName))
 

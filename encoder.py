@@ -1,5 +1,6 @@
 #DEBAYAN MAJUMDER 2020
-#Version 3.0
+#Version 3.1
+#Bug Fixes: Binary conversion was not appropriate.
 #THIS PYTHON SCRIPT HAS THREE FUNCTIONS WHICH HELPS TO RETURN THE EQUIVALENT
 #OF THE NUMBER PASSED. 
 #THE SCRIPT CONVERTS DECIMAL TO THREE DIFFERENT BASES
@@ -10,18 +11,17 @@ def toBinary(n):
     output = []
     sum = 0
     i = 0
-    while True:
-        if(sum == n):
-            break
+    c = 0
+    while c != len(values):
+        temp = sum + values[i]
+        if(temp <= n):
+            sum = sum + values[i]
+            output.append("1")
+            i = i + 1
         else:
-            temp = sum + values[i]
-            if(temp <= n):
-                sum = sum + values[i]
-                output.append("1")
-                i = i + 1
-            else:
-                output.append("0")
-                i = i + 1
+            output.append("0")
+            i = i + 1
+        c = c + 1
     
     return "".join(output)
 
