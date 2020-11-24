@@ -86,6 +86,7 @@ if isWrite:
         mdFile.write("[")
         mdFile.write("%s,"%choice)
         mdFile.write("%s,"%currentDate)
+        mdFile.write("0,")
         mdFile.write(",".join(metadata))
         mdFile.write("]")
         os.system("attrib +h %s"%(metadataFileName))

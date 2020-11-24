@@ -1,5 +1,6 @@
 #DEBAYAN MAJUMDER 2020
-#Version 3.0
+#Version 3.4
+#Added method for metadata formatting
 #THIS PYTHON SCRIPT HAS THREE FUNCTIONS WHICH HELPS TO RETURN THE EQUIVALENT
 #OF THE NUMBER PASSED.
 #THE SCRIPT CONVERTS THREE DIFFERENT BASES TO DECIMAL
@@ -37,6 +38,7 @@ def fromOctal(n):
         exp = exp - 1
     return output
 
+#METHOD TO EXTRACT FILE PATH FROM A GIVEN PATH
 def extractFilePath(path):
     i = 0
     j = 0
@@ -48,3 +50,17 @@ def extractFilePath(path):
         i = i + 1
 
     return path[1:j+1]
+
+#CONVERTING THE STRING INSIDE JSON FILE TO A LIST
+def extractMetadata(jsonFile):
+    output = []
+    s = 0
+    for this in jsonFile:
+        ch = ord(this)
+        if ch >= 48 and ch <= 57:
+            s = s*10 + int(this)
+        elif ch == 44 or ch == 93:
+            output.append(s)
+            s = 0
+    
+    return output
