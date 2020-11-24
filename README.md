@@ -1,9 +1,8 @@
 # **Encrypter and Decrypter**
 **DEBAYAN MAJUMDER**
 
-This is a **python script** which read a file you pass and then **convert it** to an equivalent **encription**
-**algorithm you choose**.
-Now, the encription algorithm already comes with builtin modules but here I 
+This is a **python script** which read a file you pass and then **convert it** to an equivalent **encryption or decryption algorithm you choose**.
+Now, the encryption or decryption algorithm already comes with builtin modules but here I 
 recreated the algorithm for a better programming experience.
 
 - [GOAL OF THE PROJECT](#goal-of-the-project)
