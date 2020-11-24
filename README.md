@@ -1,27 +1,40 @@
 # **Encrypter and Decrypter**
 **DEBAYAN MAJUMDER**
 
-This is a **python script** which read a file you pass and then **convert it** to an equivalent **encryption or decryption algorithm you choose**.
+This is a **python script** which reads a file you pass and then **converts it** to an equivalent **encryption or decryption algorithm you choose**.
 Now, the encryption or decryption algorithm already comes with builtin modules but here I 
 recreated the algorithm for a better programming experience.
 
 - [GOAL OF THE PROJECT](#goal-of-the-project)
-- [INPUT](#input)
+- [ENCRYPTION INPUT](#encryption-input)
+- [DECRYPTION INPUT](#decryption-input)
+- [RUNNING THE CODE](#executing-the-script)
 
 ## GOAL OF THE PROJECT:
 - To show how to work with multiple files inside of python.
 - How to import packages and built your own inside of python.
 - The classic encode and decode algorithms.
+- How to make hidden files, also how to edit some hidden files
+- Make new Directories/Files
+- User Friendly scripts
 
-## INPUT
+## **ENCRYPTION INPUT**
 - You have to enter the file path when the interpreter asks.
 - Choose the encoding/Encrypting algorithm you prefer to use.
 
-**The script will generate a folder named Export and the exported files(with their parent file name) will go under that directory.**
+**The script will generate a folder named "Export" and the exported files(with their parent file name) will go under that directory.**
 
 </br>
 
-### **To run the script, write in the terminal**
+## **DECRYPTION INPUT**
+- You have to enter the file path when the interpreter asks you to.
+
+**The script will Export the decrypted data file in a folder named "Export" and the exported files(with their parent file name) will go under that directory**
+
+</br>
+
+## **EXECUTING THE SCRIPT**
+### **To run the script, write in the Terminal/Shell**
 </br>
 
 #### **For Encrypting a data file**
