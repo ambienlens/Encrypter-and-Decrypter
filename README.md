@@ -23,6 +23,16 @@ recreated the algorithm for a better programming experience.
 </br>
 
 ### **To run the script, write in the terminal**
+</br>
+
+#### **For Encrypting a data file**
 ```
-python main.py
+python encrypter.py
 ```
+</br>
+
+#### **For Decrypting a data file**
+```
+python decrypter.py
+```
+##### **N.B : PLEASE INCLUDE THE WHOLE FILE PATH, ALSO THE NAMES ARE CASE SENSITIVE**
