@@ -1,5 +1,6 @@
 #DEBAYAN MAJUMDER 2020
 #Version 3.4
+#Bug FIxes: Json conversion was problematic
 #Added method for metadata formatting
 #THIS PYTHON SCRIPT HAS THREE FUNCTIONS WHICH HELPS TO RETURN THE EQUIVALENT
 #OF THE NUMBER PASSED.
