@@ -48,4 +48,12 @@ python encrypter.py
 ```
 python decrypter.py
 ```
+</br>
+
+#### **YOU CAN ALSO RUN THE BOTH SCRIPTS FROM THE "Main" SCRIPT**
+```
+python main.py
+```
+</br>
+
 ##### **N.B : PLEASE INCLUDE THE WHOLE FILE PATH, ALSO THE NAMES ARE CASE SENSITIVE**
