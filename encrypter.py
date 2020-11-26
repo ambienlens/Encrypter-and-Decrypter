@@ -1,7 +1,6 @@
 #DEBAYAN MAJUMDER 2020
-#Version 3.6
-#Added a hidden metadata file for decryption
-#Bug Fixed: Existing metadata cannot be re-written
+#Version 4
+#No need to enter the path name manually, just drag n drop in Import Dir.
 #Output Directory name can be changed now
 #This is the driver python script which lets you enter the name of the file,
 #and then outputs the formated and modified file in Export Dir.
@@ -11,7 +10,44 @@ from encoder import *
 from datetime import date
 import os
 
-filePath = input("Enter the path of the file: ")
+rootDir = "Import"
+filePath = ""
+os.makedirs(rootDir, exist_ok=True)
+
+while True:
+    noOfFiles = len(os.listdir(rootDir))
+    dirs = os.listdir(rootDir)
+    isFileFound = False
+
+    if noOfFiles == 1:
+        print("File Found in Directory.")
+        filePath = "%s/%s"%(rootDir, dirs[0])
+        break
+    elif noOfFiles > 1:
+        i = 0
+        print("Files under %s Directory: "%rootDir)
+        for this in dirs:
+            print("%s) %s"%(i+1, this))
+            i = i + 1
+        
+        print("Can't find the file? Press Enter to Search the directory again,")
+        n = input("or Enter number corresponding to the file name: ")
+
+        if n == "":
+            input("Drag n drop the data/file into the import directory and press enter to continue.")
+        else:
+            filePath = "%s/%s"%(rootDir, dirs[int(n) - 1])
+            break
+    else:
+        print("Dir. is Empty")
+        ch = input("Do you want to enter the path? (y/n): ")
+        if ch.lower() == "y":
+            filePath = input("Enter the path of the file: ")
+            break
+        elif ch.lower() == "n":
+            input("Drag n drop the data into the import dir. and press enter to continue.")
+
+
 fileName = extractFileName("/" + filePath)
 outputDir = "Export"
 outputDirParent = fileName + "_Encrypted"
