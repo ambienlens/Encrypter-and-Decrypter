@@ -20,7 +20,7 @@ Now, the encryption or decryption algorithm already comes with builtin modules b
 - User Friendly scripts
 
 ## **ENCRYPTION INPUT**
-- You have to enter the file path when the interpreter asks.
+- Choose file from the Import directory if a file exists or the program waits for you to drag n drop a file or number of files in the directory. (LEGACY: MANUAL PATH ENTRY IS STILL SUPPORTED)
 - Choose the encoding/Encrypting algorithm you prefer to use.
 
 **The script will generate a folder named "Export" and the exported files(with their parent file name) will go under that directory.**
