@@ -1,5 +1,6 @@
 #DEBAYAN MAJUMDER 2020
-#Version 4
+#Version 4.0
+#Bug Fixes: Added the directory found name & fixed runtime error
 #No need to enter the path name manually, just drag n drop in Import Dir.
 #Output Directory name can be changed now
 #This is the driver python script which lets you enter the name of the file,
@@ -20,7 +21,7 @@ while True:
     isFileFound = False
 
     if noOfFiles == 1:
-        print("File Found in Directory.")
+        print("%s Found in Directory."%dirs[0])
         filePath = "%s/%s"%(rootDir, dirs[0])
         break
     elif noOfFiles > 1:
